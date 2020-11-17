@@ -67,24 +67,18 @@ class __TwigTemplate_c0665f675f3659634fcbf34510a6b80b0ca42d34c045ea12117d78f1ba2
                         <a class=\"nav-link\" href=\"#\">Accueil <span class=\"sr-only\">(current)</span></a>
                     </li>
                     <li class=\"nav-item active\">
-                        <a class=\"nav-link\" href=\"#\">Catalogue <span class=\"sr-only\">(current)</span></a>
-                    </li>
-                    <li class=\"nav-item active\">
-                        <a class=\"nav-link\" href=\"#\">News <span class=\"sr-only\">(current)</span></a>
-                    </li>
-                    <li class=\"nav-item active\">
-                        <a class=\"nav-link\" href=\"#\">Admin <span class=\"sr-only\">(current)</span></a>
+                        <a class=\"nav-link\" href=\"#\">Login <span class=\"sr-only\">(current)</span></a>
                     </li>
                 </ul>
             </div>
         </nav>    
         ";
-        // line 33
+        // line 27
         $this->displayBlock('body', $context, $blocks);
-        // line 34
+        // line 28
         echo "        ";
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 35
+        // line 29
         echo "    </body>
 </html>
 ";
@@ -115,7 +109,7 @@ class __TwigTemplate_c0665f675f3659634fcbf34510a6b80b0ca42d34c045ea12117d78f1ba2
 
     }
 
-    // line 33
+    // line 27
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -133,7 +127,7 @@ class __TwigTemplate_c0665f675f3659634fcbf34510a6b80b0ca42d34c045ea12117d78f1ba2
 
     }
 
-    // line 34
+    // line 28
     public function block_javascripts($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -158,7 +152,7 @@ class __TwigTemplate_c0665f675f3659634fcbf34510a6b80b0ca42d34c045ea12117d78f1ba2
 
     public function getDebugInfo()
     {
-        return array (  137 => 34,  119 => 33,  100 => 5,  88 => 35,  85 => 34,  83 => 33,  52 => 5,  46 => 1,);
+        return array (  131 => 28,  113 => 27,  94 => 5,  82 => 29,  79 => 28,  77 => 27,  52 => 5,  46 => 1,);
     }
 
     public function getSourceContext()
@@ -184,13 +178,7 @@ class __TwigTemplate_c0665f675f3659634fcbf34510a6b80b0ca42d34c045ea12117d78f1ba2
                         <a class=\"nav-link\" href=\"#\">Accueil <span class=\"sr-only\">(current)</span></a>
                     </li>
                     <li class=\"nav-item active\">
-                        <a class=\"nav-link\" href=\"#\">Catalogue <span class=\"sr-only\">(current)</span></a>
-                    </li>
-                    <li class=\"nav-item active\">
-                        <a class=\"nav-link\" href=\"#\">News <span class=\"sr-only\">(current)</span></a>
-                    </li>
-                    <li class=\"nav-item active\">
-                        <a class=\"nav-link\" href=\"#\">Admin <span class=\"sr-only\">(current)</span></a>
+                        <a class=\"nav-link\" href=\"#\">Login <span class=\"sr-only\">(current)</span></a>
                     </li>
                 </ul>
             </div>

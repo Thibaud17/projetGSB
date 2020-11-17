@@ -97,6 +97,7 @@ class __TwigTemplate_75d25e6f035b9c16a2cb302e7de3ed647556d81eca180e83245826edd89
 \t\t\t\t<img class=\"img-fluid\" src=\"https://www.cabinetinfirmierdecines.fr/wp-content/uploads/2019/04/Quels-sont-les-plus-gros-laboratoires-pharmaceutiques-fran%C3%A7ais.jpg\" alt=\"laboratoire pharceutique\"  width=\"1500px\"  height=\"600px\"/>
 \t\t\t</div>
 \t\t\t<div>
+            </br>
 \t\t\t\t<p>Lorem ipsum dolor sit amet, 
 \t\t\t\tconsectetur adipiscing elit.
 \t\t\t\tNullam quis nunc velit. 
@@ -156,6 +157,7 @@ class __TwigTemplate_75d25e6f035b9c16a2cb302e7de3ed647556d81eca180e83245826edd89
 \t\t\t\t<img class=\"img-fluid\" src=\"https://www.cabinetinfirmierdecines.fr/wp-content/uploads/2019/04/Quels-sont-les-plus-gros-laboratoires-pharmaceutiques-fran%C3%A7ais.jpg\" alt=\"laboratoire pharceutique\"  width=\"1500px\"  height=\"600px\"/>
 \t\t\t</div>
 \t\t\t<div>
+            </br>
 \t\t\t\t<p>Lorem ipsum dolor sit amet, 
 \t\t\t\tconsectetur adipiscing elit.
 \t\t\t\tNullam quis nunc velit. 
