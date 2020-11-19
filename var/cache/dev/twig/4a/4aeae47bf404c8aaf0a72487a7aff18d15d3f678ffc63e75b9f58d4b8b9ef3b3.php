@@ -24,16 +24,12 @@ class __TwigTemplate_75d25e6f035b9c16a2cb302e7de3ed647556d81eca180e83245826edd89
 
         $this->source = $this->getSourceContext();
 
+        $this->parent = false;
+
         $this->blocks = [
             'title' => [$this, 'block_title'],
             'body' => [$this, 'block_body'],
         ];
-    }
-
-    protected function doGetParent(array $context)
-    {
-        // line 1
-        return "base.html.twig";
     }
 
     protected function doDisplay(array $context, array $blocks = [])
@@ -45,8 +41,22 @@ class __TwigTemplate_75d25e6f035b9c16a2cb302e7de3ed647556d81eca180e83245826edd89
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "home/index.html.twig"));
 
-        $this->parent = $this->loadTemplate("base.html.twig", "home/index.html.twig", 1);
-        $this->parent->display($context, array_merge($this->blocks, $blocks));
+        // line 1
+        echo "<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset=\"UTF-8\">
+        ";
+        // line 5
+        $this->displayBlock('title', $context, $blocks);
+        // line 6
+        echo "        <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css\">
+        
+    </head>
+    
+";
+        // line 10
+        $this->displayBlock('body', $context, $blocks);
         
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
 
@@ -55,7 +65,7 @@ class __TwigTemplate_75d25e6f035b9c16a2cb302e7de3ed647556d81eca180e83245826edd89
 
     }
 
-    // line 3
+    // line 5
     public function block_title($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -74,7 +84,7 @@ class __TwigTemplate_75d25e6f035b9c16a2cb302e7de3ed647556d81eca180e83245826edd89
 
     }
 
-    // line 5
+    // line 10
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -84,7 +94,7 @@ class __TwigTemplate_75d25e6f035b9c16a2cb302e7de3ed647556d81eca180e83245826edd89
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 6
+        // line 11
         echo "<style>
     .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
@@ -131,22 +141,22 @@ class __TwigTemplate_75d25e6f035b9c16a2cb302e7de3ed647556d81eca180e83245826edd89
         return "home/index.html.twig";
     }
 
-    public function isTraitable()
-    {
-        return false;
-    }
-
     public function getDebugInfo()
     {
-        return array (  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  98 => 11,  88 => 10,  69 => 5,  59 => 10,  53 => 6,  51 => 5,  45 => 1,);
     }
 
     public function getSourceContext()
     {
-        return new Source("{% extends 'base.html.twig' %}
-
-{% block title %}GSB Utilitaire{% endblock %}
-
+        return new Source("<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset=\"UTF-8\">
+        {% block title %}GSB Utilitaire{% endblock %}
+        <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css\">
+        
+    </head>
+    
 {% block body %}
 <style>
     .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
