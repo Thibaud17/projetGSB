@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Forfait
  *
  * @ORM\Table(name="FORFAIT", indexes={@ORM\Index(name="FK_FORFAIT_TYPE_FRAIS", columns={"ID_TYPE"}), @ORM\Index(name="FK_FORFAIT_FICHE", columns={"ID_FICHE"})})
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Repository\ForfaitRepository")
  */
 class Forfait
 {
@@ -16,6 +16,7 @@ class Forfait
      * @var int
      *
      * @ORM\Column(name="ID_FORFAIT", type="integer", nullable=false)
+
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */

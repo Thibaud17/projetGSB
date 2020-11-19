@@ -8,8 +8,9 @@ use Doctrine\ORM\Mapping as ORM;
  * HorsForfait
  *
  * @ORM\Table(name="HORS_FORFAIT", indexes={@ORM\Index(name="FK_HORS_FORFAIT_FICHE", columns={"ID_FICHE"})})
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Repository\HorsForfaitRepository")
  */
+
 class HorsForfait
 {
     /**

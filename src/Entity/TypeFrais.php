@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * TypeFrais
  *
  * @ORM\Table(name="TYPE_FRAIS")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Repository\TypeFraisRepository")
  */
 class TypeFrais
 {

@@ -29,6 +29,9 @@ return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\
                     'ID_FICHE',
                 ],
             ],
+            'repositoryClass' => [
+                3 => 'App\\Repository\\ForfaitRepository',
+            ],
         ],
     ],
     [
