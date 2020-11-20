@@ -15,5 +15,7 @@ return [
     '_profiler_router' => [['token'], ['_controller' => 'web_profiler.controller.router::panelAction'], [], [['text', '/router'], ['variable', '/', '[^/]++', 'token'], ['text', '/_profiler']], [], []],
     '_profiler_exception' => [['token'], ['_controller' => 'web_profiler.controller.exception_panel::body'], [], [['text', '/exception'], ['variable', '/', '[^/]++', 'token'], ['text', '/_profiler']], [], []],
     '_profiler_exception_css' => [['token'], ['_controller' => 'web_profiler.controller.exception_panel::stylesheet'], [], [['text', '/exception.css'], ['variable', '/', '[^/]++', 'token'], ['text', '/_profiler']], [], []],
-    'home' => [[], ['_controller' => 'App\\Controller\\HomeController::index'], [], [['text', '/']], [], []],
+    'fiche' => [['id_Vis', 'id_Fiche'], ['_controller' => 'App\\Controller\\FicheController::modifier'], [], [['variable', '/', '[^/]++', 'id_Fiche'], ['text', '/fiche'], ['variable', '/', '[^/]++', 'id_Vis'], ['text', '/menu']], [], []],
+    'connexion' => [[], ['_controller' => 'App\\Controller\\HomeController::connexion'], [], [['text', '/']], [], []],
+    'menu' => [['id'], ['_controller' => 'App\\Controller\\HomeController::menu'], [], [['variable', '/', '[^/]++', 'id'], ['text', '/menu']], [], []],
 ];

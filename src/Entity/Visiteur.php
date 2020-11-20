@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -69,6 +71,17 @@ class Visiteur
      * @ORM\Column(name="VILLE", type="string", length=40, nullable=true)
      */
     private $ville;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Fiche::class, mappedBy="visiteur")
+     */
+    private $fiches;
+
+    public function __construct()
+    {
+        $this->fiches = new ArrayCollection();
+    }
+
 
     public function getIdVisit(): ?int
     {
@@ -155,6 +168,36 @@ class Visiteur
     public function setVille(?string $ville): self
     {
         $this->ville = $ville;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Fiche[]
+     */
+    public function getFiches(): Collection
+    {
+        return $this->fiches;
+    }
+
+    public function addFich(Fiche $fich): self
+    {
+        if (!$this->fiches->contains($fich)) {
+            $this->fiches[] = $fich;
+            $fich->setVisiteur($this);
+        }
+
+        return $this;
+    }
+
+    public function removeFich(Fiche $fich): self
+    {
+        if ($this->fiches->removeElement($fich)) {
+            // set the owning side to null (unless already changed)
+            if ($fich->getVisiteur() === $this) {
+                $fich->setVisiteur(null);
+            }
+        }
 
         return $this;
     }

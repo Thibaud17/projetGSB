@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello FicheController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+
+<div class="example-wrapper">
+  <div class="jumbotron">
+    <h1>Edition du forfait</h1>
+  </div>
+  <div class="container">
+    {{ form_start(form) }}
+
+    {{ form_row(form.) }}
+    {{ form_row(form.resume) }}
+    {{ form_row(form.duree) }}
+    {{ form_row(form.premiereDiffusion) }}
+    {{ form_row(form.image) }}
+    {{ form_row(form.lesGenres) }}
+
+    <button class="btn btn-primary" type="submit">Sauvegarder</button>
+    {{ form_end(form) }}
+  </div>
+
+{% endblock %}

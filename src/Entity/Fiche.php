@@ -2,7 +2,11 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use App\Entity\Visiteur;
+use App\Entity\Etat;
 
 /**
  * Fiche
@@ -38,16 +42,12 @@ class Fiche
      */
     private $idEtat;
 
-    /**
-     * @var \Visiteur
-     *
-     * @ORM\ManyToOne(targetEntity="Visiteur")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="ID_VISIT", referencedColumnName="ID_VISIT")
-     * })
+ /**
+     * @ORM\ManyToOne(targetEntity=Visiteur::class, inversedBy="fiches")
+     * @ORM\JoinColumn(name="ID_VISIT", referencedColumnName="ID_VISIT")
      */
-    private $idVisit;
-
+    private $visiteur;
+    
     public function getIdFiche(): ?int
     {
         return $this->idFiche;
@@ -89,5 +89,15 @@ class Fiche
         return $this;
     }
 
+    public function getVisiteur()
+    {
+        return $this->visiteur;
+    }
 
+    public function setVisiteur($visiteur): self
+    {
+        $this->visiteur = $visiteur;
+
+        return $this;
+    }
 }

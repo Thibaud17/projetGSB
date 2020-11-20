@@ -51,9 +51,8 @@ class __TwigTemplate_c0665f675f3659634fcbf34510a6b80b0ca42d34c045ea12117d78f1ba2
         // line 5
         $this->displayBlock('title', $context, $blocks);
         echo "</title>
+        <link rel=\"icon\" href=\"https://7e150783-a-62cb3a1a-s-sites.googlegroups.com/site/portfoliospielmann/formation/gsb---application-frais-comptables/gsb.png?attachauth=ANoY7cq7o2Y4QlFCl2wSjgpT_9qWGizRpqNRQ_HArXpporN6WuY6ZAkitZUP5NZCwnHjDTBD9XLZ8n55WuJ03FXkMc7_dn14SoVtNeekFM5KIVpgRoQWSCtdcf9cT2T7FHrA9J03l0VQJOWmZC9Uhv4CuTQrS2uE8MfnjRkkB4Y5jY2iKDz8SA_dSuKxylKUCAcIq9grTIbNd1EO_QrT9OT6xFvCrnA0qdsm6nFCO38GxJIC-854tUBDhXpQz0V0CGW3FZrC2foddMlQYWoqYnd8-uCSC1JqGA%3D%3D&attredirects=0\" />
         <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css\">
-        <script src=\"//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js\"></script>
-        <script src=\"//code.jquery.com/jquery-1.11.1.min.js\"></script>
         
     </head>
     <body>
@@ -64,27 +63,27 @@ class __TwigTemplate_c0665f675f3659634fcbf34510a6b80b0ca42d34c045ea12117d78f1ba2
             <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">
                 <ul class=\"navbar-nav mr-auto\">
                     <li class=\"nav-item active\">
-                        <a class=\"nav-link\" href=\"#\">Accueil <span class=\"sr-only\">(current)</span></a>
+                        <a class=\"nav-link\" href=\"";
+        // line 18
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("connexion");
+        echo "\">Connexion <span class=\"sr-only\">(current)</span></a>
                     </li>
                     <li class=\"nav-item active\">
-                        <a class=\"nav-link\" href=\"#\">Catalogue <span class=\"sr-only\">(current)</span></a>
+                        <a class=\"nav-link\" href=\"#\"> <span class=\"sr-only\">(current)</span></a>
                     </li>
                     <li class=\"nav-item active\">
-                        <a class=\"nav-link\" href=\"#\">News <span class=\"sr-only\">(current)</span></a>
-                    </li>
-                    <li class=\"nav-item active\">
-                        <a class=\"nav-link\" href=\"#\">Admin <span class=\"sr-only\">(current)</span></a>
+                        <a class=\"nav-link\" href=\"#\"> <span class=\"sr-only\">(current)</span></a>
                     </li>
                 </ul>
             </div>
         </nav>    
         ";
-        // line 33
+        // line 29
         $this->displayBlock('body', $context, $blocks);
-        // line 34
+        // line 30
         echo "        ";
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 35
+        // line 31
         echo "    </body>
 </html>
 ";
@@ -106,7 +105,6 @@ class __TwigTemplate_c0665f675f3659634fcbf34510a6b80b0ca42d34c045ea12117d78f1ba2
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
 
-        echo "Welcome!";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -115,7 +113,7 @@ class __TwigTemplate_c0665f675f3659634fcbf34510a6b80b0ca42d34c045ea12117d78f1ba2
 
     }
 
-    // line 33
+    // line 29
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -133,7 +131,7 @@ class __TwigTemplate_c0665f675f3659634fcbf34510a6b80b0ca42d34c045ea12117d78f1ba2
 
     }
 
-    // line 34
+    // line 30
     public function block_javascripts($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -156,9 +154,14 @@ class __TwigTemplate_c0665f675f3659634fcbf34510a6b80b0ca42d34c045ea12117d78f1ba2
         return "base.html.twig";
     }
 
+    public function isTraitable()
+    {
+        return false;
+    }
+
     public function getDebugInfo()
     {
-        return array (  137 => 34,  119 => 33,  100 => 5,  88 => 35,  85 => 34,  83 => 33,  52 => 5,  46 => 1,);
+        return array (  135 => 30,  117 => 29,  99 => 5,  87 => 31,  84 => 30,  82 => 29,  68 => 18,  52 => 5,  46 => 1,);
     }
 
     public function getSourceContext()
@@ -167,10 +170,9 @@ class __TwigTemplate_c0665f675f3659634fcbf34510a6b80b0ca42d34c045ea12117d78f1ba2
 <html>
     <head>
         <meta charset=\"UTF-8\">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %}{% endblock %}</title>
+        <link rel=\"icon\" href=\"https://7e150783-a-62cb3a1a-s-sites.googlegroups.com/site/portfoliospielmann/formation/gsb---application-frais-comptables/gsb.png?attachauth=ANoY7cq7o2Y4QlFCl2wSjgpT_9qWGizRpqNRQ_HArXpporN6WuY6ZAkitZUP5NZCwnHjDTBD9XLZ8n55WuJ03FXkMc7_dn14SoVtNeekFM5KIVpgRoQWSCtdcf9cT2T7FHrA9J03l0VQJOWmZC9Uhv4CuTQrS2uE8MfnjRkkB4Y5jY2iKDz8SA_dSuKxylKUCAcIq9grTIbNd1EO_QrT9OT6xFvCrnA0qdsm6nFCO38GxJIC-854tUBDhXpQz0V0CGW3FZrC2foddMlQYWoqYnd8-uCSC1JqGA%3D%3D&attredirects=0\" />
         <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css\">
-        <script src=\"//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js\"></script>
-        <script src=\"//code.jquery.com/jquery-1.11.1.min.js\"></script>
         
     </head>
     <body>
@@ -181,16 +183,13 @@ class __TwigTemplate_c0665f675f3659634fcbf34510a6b80b0ca42d34c045ea12117d78f1ba2
             <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">
                 <ul class=\"navbar-nav mr-auto\">
                     <li class=\"nav-item active\">
-                        <a class=\"nav-link\" href=\"#\">Accueil <span class=\"sr-only\">(current)</span></a>
+                        <a class=\"nav-link\" href=\"{{path('connexion')}}\">Connexion <span class=\"sr-only\">(current)</span></a>
                     </li>
                     <li class=\"nav-item active\">
-                        <a class=\"nav-link\" href=\"#\">Catalogue <span class=\"sr-only\">(current)</span></a>
+                        <a class=\"nav-link\" href=\"#\"> <span class=\"sr-only\">(current)</span></a>
                     </li>
                     <li class=\"nav-item active\">
-                        <a class=\"nav-link\" href=\"#\">News <span class=\"sr-only\">(current)</span></a>
-                    </li>
-                    <li class=\"nav-item active\">
-                        <a class=\"nav-link\" href=\"#\">Admin <span class=\"sr-only\">(current)</span></a>
+                        <a class=\"nav-link\" href=\"#\"> <span class=\"sr-only\">(current)</span></a>
                     </li>
                 </ul>
             </div>
