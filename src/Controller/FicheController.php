@@ -35,6 +35,6 @@ class FicheController extends AbstractController
             $em->flush();
             $this->redirectToRoute("menu");
         }
-        return $this->render('fiche/modifFiche.html.twig',['form' => $form->createView()]);
+        return $this->render('fiche/modifFiche.html.twig',['form' => $form->createView(),'visiteur' => $leVisiteur,'fiche' => $laFiche,'lesForfaits' => $lesForfaits]);
     }
 }

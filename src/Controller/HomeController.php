@@ -26,8 +26,8 @@ class HomeController extends AbstractController
         $visiteur = $repository->find($id);
         $mois=$this->getNameMonth();
         $fiches = $visiteur->getFiches();
-        dump($mois);
-        return $this->render('home/menu.html.twig', ['lesFiches' => $fiches,'mois' => $mois]);
+        $laFiche=$repository->findLastFiche();
+        return $this->render('home/menu.html.twig', ['lesFiches' => $fiches,'mois' => $mois,'laFiche' => $laFiche]);
     }
 
 
@@ -45,7 +45,7 @@ class HomeController extends AbstractController
 
 
 
-    
+
     public function getNameMonth()
     {
         $name="Janvier";

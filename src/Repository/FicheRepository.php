@@ -47,4 +47,11 @@ class FicheRepository extends ServiceEntityRepository
         ;
     }
     */
+    public function findLastFiche()
+    {
+        return $this->createQueryBuilder('s')
+        ->orderBy('s.MOIS', 'DESC')
+        ->getQuery()
+        ->getResult();
+    }
 }

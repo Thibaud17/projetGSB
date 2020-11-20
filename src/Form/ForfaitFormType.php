@@ -13,8 +13,7 @@ class ForfaitFormType extends AbstractType
     {
         $builder
             ->add('qte')
-            ->add('idFiche')
-            ->add('idType')
+            
         ;
     }
 
