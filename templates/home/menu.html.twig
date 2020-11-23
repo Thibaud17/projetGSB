@@ -10,14 +10,14 @@
     
 
 <div class="example-wrapper">
-<h1>Remplir la fiche de frais de {{mois}}</h1>
+<h1>Remplir la fiche de frais de {{mois}} </h1>
    <div class="card text-center">
       <div class="card-header">
        
       </div>
    <div class="card-body">
       <h5 class="card-title">{{ "now"|date("m/Y") }}</h5>
-      <a href="{{ path('menu', {'id_Vis': 1}, {'id_Fiche': }) }}" class="btn btn-primary">Remplir de nouveaux frais</a>
+      <a href="{{ path('fiche', {'id_Fiche': laFiche.0.idFiche }) }}" class="btn btn-primary">Remplir de nouveaux frais</a>
    </div>
    <div class="card-footer text-muted">
 

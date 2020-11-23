@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Visiteur;
+use App\Entity\Fiche;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -22,11 +23,13 @@ class HomeController extends AbstractController
      */
     public function menu($id): Response
     {
-        $repository = $this->getDoctrine()->getRepository(Visiteur::class);
-        $visiteur = $repository->find($id);
+        $repositoryVis = $this->getDoctrine()->getRepository(Visiteur::class);
+        $visiteur = $repositoryVis->find($id);
         $mois=$this->getNameMonth();
         $fiches = $visiteur->getFiches();
-        $laFiche=$repository->findLastFiche();
+        $repositoryFiche = $this->getDoctrine()->getRepository( Fiche::class);
+        $laFiche=$repositoryFiche->findLastFiche($id);
+        dump($laFiche);
         return $this->render('home/menu.html.twig', ['lesFiches' => $fiches,'mois' => $mois,'laFiche' => $laFiche]);
     }
 
@@ -50,7 +53,6 @@ class HomeController extends AbstractController
     {
         $name="Janvier";
         $i=date("m");
-        dump($i);
         switch ($i) 
         {
             case "01":

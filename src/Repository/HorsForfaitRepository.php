@@ -47,4 +47,14 @@ class HorsForfaitRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    public function findHForfaitByFiche($idFiche)
+    {
+        return $this->createQueryBuilder('s')
+        ->andWhere('s.ID_FICHE = :idfiche')
+        ->setParameter('idfiche',$idFiche)
+        ->getQuery()
+        ->getResult();
+    }
+
 }
