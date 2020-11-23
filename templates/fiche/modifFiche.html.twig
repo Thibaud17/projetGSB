@@ -14,29 +14,24 @@
     <h1>Edition du forfait</h1>
   </div>
   <div class="container">
-    {{ form_start(form) }}
     <table class="table table-bordered">
   <thead>
     <tr>
       <th scope="col">#</th>
       <th scope="col">First</th>
       <th scope="col">Last</th>
-      <th scope="col">Handle</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th scope="row">1</th>
-      <td>{{ form_row(form.qte) }}</td>
       <td>Otto</td>
       <td>@mdo</td>
     </tr>
   </tbody>
 </table>
-    {{ form_row(form.qte) }}
 
     <button class="btn btn-primary" type="submit">Sauvegarder</button>
-    {{ form_end(form) }}
   </div>
 
 {% endblock %}

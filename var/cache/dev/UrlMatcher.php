@@ -32,10 +32,11 @@ return [
                         .'|(*:159)'
                     .')'
                 .')'
-                .'|/fiche/([^/]++)(?'
-                    .'|(*:187)'
+                .'|/fiche/(?'
+                    .'|([^/]++)(*:187)'
+                    .'|Hforfait/([^/]++)(*:212)'
                 .')'
-                .'|/menu/([^/]++)(*:210)'
+                .'|/menu/([^/]++)(*:235)'
             .')/?$}sD',
     ],
     [ // $dynamicRoutes
@@ -46,11 +47,9 @@ return [
         136 => [[['_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception_panel::body'], ['token'], null, null, false, false, null]],
         149 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
         159 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
-        187 => [
-            [['_route' => 'fiche', '_controller' => 'App\\Controller\\FicheController::modifier'], ['id_Fiche'], null, null, false, true, null],
-            [['_route' => 'modifForfait', '_controller' => 'App\\Controller\\FicheController::modifierHorsForfait'], ['id_Fiche'], null, null, false, true, null],
-        ],
-        210 => [
+        187 => [[['_route' => 'fiche', '_controller' => 'App\\Controller\\FicheController::modifier'], ['id_Fiche'], null, null, false, true, null]],
+        212 => [[['_route' => 'modifForfait', '_controller' => 'App\\Controller\\FicheController::modifierHorsForfait'], ['id_Fiche'], null, null, false, true, null]],
+        235 => [
             [['_route' => 'menu', '_controller' => 'App\\Controller\\HomeController::menu'], ['id'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],

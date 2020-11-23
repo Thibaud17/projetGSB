@@ -52,7 +52,7 @@ class ForfaitRepository extends ServiceEntityRepository
     public function findForfaitByFiche($idFiche)
     {
         return $this->createQueryBuilder('s')
-        ->andWhere('s.ID_FICHE = :idfiche')
+        ->andWhere('s.idFiche = :idfiche')
         ->setParameter('idfiche',$idFiche)
         ->getQuery()
         ->getResult();

@@ -21,21 +21,21 @@ class FicheController extends AbstractController
         $repository = $this->getDoctrine()->getRepository(Fiche::class);
         $laFiche = $repository->find($id_Fiche);
         $repository = $this->getDoctrine()->getRepository(Forfait::class);
-        $lesForfaits = $repository->findForfaitByFiche($idFiche);
+        $lesForfaits = $repository->findForfaitByFiche($id_Fiche);
         $repository = $this->getDoctrine()->getRepository(HorsForfait::class);
-        $lesHorsForfaits = $repository->findHForfaitByFiche($idFiche);
+        $lesHorsForfaits = $repository->findHForfaitByFiche($id_Fiche);
 
         return $this->render('fiche/modifFiche.html.twig',['fiche' => $laFiche,'lesHorsForfait' => $lesHorsForfaits ,'lesForfaits' => $lesForfaits]);
     }
     /**
-     * @Route("/fiche/{id_Fiche}", name="modifForfait")
+     * @Route("/fiche/forfait/{id_Fiche}", name="modifForfait")
      */
     public function modifierForfait($id_Fiche,Request $request): Response
     {
         $repository = $this->getDoctrine()->getRepository(Fiche::class);
         $laFiche = $repository->find($id_Fiche);
         $repository = $this->getDoctrine()->getRepository(Forfait::class);
-        $lesForfaits = $repository->findForfaitByFiche($idFiche);
+        $lesForfaits = $repository->findForfaitByFiche($id_Fiche);
 
         $form = $this->createForm(ForfaitFormType::class,$id_Fiche);
         $form->handleRequest($request);
@@ -50,14 +50,14 @@ class FicheController extends AbstractController
         return $this->render('fiche/modifFiche.html.twig',['form' => $form->createView(),'fiche' => $laFiche,'lesForfaits' => $lesForfaits]);
     }
     /**
-     * @Route("/fiche/{id_Fiche}", name="modifForfait")
+     * @Route("/fiche/Hforfait/{id_Fiche}", name="modifForfait")
      */
     public function modifierHorsForfait($id_Fiche,Request $request): Response
     {
         $repository = $this->getDoctrine()->getRepository(Fiche::class);
         $laFiche = $repository->find($id_Fiche);
         $repository = $this->getDoctrine()->getRepository(HorsForfait::class);
-        $lesHorsForfaits = $repository->findHForfaitByFiche($idFiche);
+        $lesHorsForfaits = $repository->findHForfaitByFiche($id_Fiche);
 
         $form = $this->createForm(ForfaitFormType::class,$id_Fiche);
         $form->handleRequest($request);
