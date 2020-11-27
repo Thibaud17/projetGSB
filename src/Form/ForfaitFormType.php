@@ -3,7 +3,9 @@
 namespace App\Form;
 
 use App\Entity\Forfait;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -16,9 +18,8 @@ class ForfaitFormType extends AbstractType
             
             
         ;
-        $builder->add('leType', [
-            'entry_type' => TypeFraisFormType::class,
-            'entry_options' => ['label' => false],
+        $builder->add('idType', CollectionType::class, [
+            'entry_type' => ChoiceType::class,
             'allow_add' => true,
         ]);
     }

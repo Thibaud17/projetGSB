@@ -8,7 +8,10 @@ use App\Entity\HorsForfait;
 use App\Entity\TypeFrais;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use App\Form\ForfaitFormType;
+use App\Form\FicheFormType;
+use App\Form\TypeFraisFormType;
 use App\Form\HorsForfaitFormType;
+
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -16,23 +19,25 @@ use Symfony\Component\Routing\Annotation\Route;
 class FicheController extends AbstractController
 {
     /**
-     * @Route("/fiche/", name="creaFiche")
+     * @Route("/fiche", name="creaFiche")
      */
     public function creation(Request $request): Response
     {
         $laFiche=new Fiche();
         
 
-        for ($i = 1; $i = 4; $i++)
-        {
-            $forfait= new Forfait();
-            $repositoryT = $this->getDoctrine()->getRepository(TypeFrais::class);
-            $leType = $repositoryT->find($i);
-            $forfait->setIdType($leType);
-            
-        }
-        dump($laFiche);
+        $forfait= new Forfait();
+        $repositoryT = $this->getDoctrine()->getRepository(TypeFrais::class);
+        $leType = $repositoryT->find(1);
+        $forfait->setIdType($leType);
         $laFiche->addLesForfait($forfait);
+        $repositoryT = $this->getDoctrine()->getRepository(TypeFrais::class);
+        $leType = $repositoryT->find(2);
+        $forfait->setIdType($leType);
+        $laFiche->addLesForfait($forfait);
+
+        dump($laFiche);
+
         $form = $this->createForm(FicheFormType::class,$laFiche);
         $form->handleRequest($request);
         if ($form->isSubmitted() and $form->isValid())
@@ -44,9 +49,8 @@ class FicheController extends AbstractController
             $this->redirectToRoute("menu");
         }
         
-        return $this->render('fiche/modifFiche.html.twig',
-        [' 
-            form' => $form->createView(),
+        return $this->render('fiche/creaFiche.html.twig',
+        ['form' => $form->createView(),
         ]);
     }
 
