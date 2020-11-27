@@ -37,7 +37,10 @@ return [
                     .'|([^/]++)(*:187)'
                     .'|Hforfait/([^/]++)(*:212)'
                 .')'
-                .'|/menu/([^/]++)(*:235)'
+                .'|/menu(?'
+                    .'|/([^/]++)(*:238)'
+                    .'|JSON/([^/]++)(*:259)'
+                .')'
             .')/?$}sD',
     ],
     [ // $dynamicRoutes
@@ -50,8 +53,9 @@ return [
         159 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
         187 => [[['_route' => 'modFiche', '_controller' => 'App\\Controller\\FicheController::modifier'], ['id_Fiche'], null, null, false, true, null]],
         212 => [[['_route' => 'modifForfait', '_controller' => 'App\\Controller\\FicheController::modifierHorsForfait'], ['id_Fiche'], null, null, false, true, null]],
-        235 => [
-            [['_route' => 'menu', '_controller' => 'App\\Controller\\HomeController::menu'], ['id'], null, null, false, true, null],
+        238 => [[['_route' => 'menu', '_controller' => 'App\\Controller\\HomeController::menu'], ['id'], null, null, false, true, null]],
+        259 => [
+            [['_route' => 'menuJSON', '_controller' => 'App\\Controller\\HomeController::menuJSON'], ['id'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],
     ],

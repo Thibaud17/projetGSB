@@ -20,4 +20,5 @@ return [
     'modifForfait' => [['id_Fiche'], ['_controller' => 'App\\Controller\\FicheController::modifierHorsForfait'], [], [['variable', '/', '[^/]++', 'id_Fiche'], ['text', '/fiche/Hforfait']], [], []],
     'connexion' => [[], ['_controller' => 'App\\Controller\\HomeController::connexion'], [], [['text', '/']], [], []],
     'menu' => [['id'], ['_controller' => 'App\\Controller\\HomeController::menu'], [], [['variable', '/', '[^/]++', 'id'], ['text', '/menu']], [], []],
+    'menuJSON' => [['id'], ['_controller' => 'App\\Controller\\HomeController::menuJSON'], [], [['variable', '/', '[^/]++', 'id'], ['text', '/menuJSON']], [], []],
 ];

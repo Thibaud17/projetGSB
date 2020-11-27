@@ -86,7 +86,7 @@ class Fiche
 
         return $this;
     }
-
+    /*
     public function getIdVisit(): ?Visiteur
     {
         return $this->idVisit;
@@ -98,6 +98,7 @@ class Fiche
 
         return $this;
     }
+    */
 
     public function getVisiteur()
     {

@@ -29,9 +29,10 @@ class FicheController extends AbstractController
             $repositoryT = $this->getDoctrine()->getRepository(TypeFrais::class);
             $leType = $repositoryT->find($i);
             $forfait->setIdType($leType);
-            $laFiche->addLesForfait($forfait);
+            
         }
         dump($laFiche);
+        $laFiche->addLesForfait($forfait);
         $form = $this->createForm(FicheFormType::class,$laFiche);
         $form->handleRequest($request);
         if ($form->isSubmitted() and $form->isValid())
