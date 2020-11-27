@@ -351,7 +351,13 @@
         <argument type="service" id=".service_locator.vdmMuyE.App\Controller\HomeController"/>
       </call>
     </service>
+    <service id="App\Form\FicheFormType" class="App\Form\FicheFormType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
     <service id="App\Form\ForfaitFormType" class="App\Form\ForfaitFormType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
+    <service id="App\Form\HorsForfaitFormType" class="App\Form\HorsForfaitFormType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
     <service id="App\Repository\EtatRepository" class="App\Repository\EtatRepository" autowire="true" autoconfigure="true">
@@ -793,7 +799,9 @@
         <argument>Symfony\Bridge\Doctrine\Form\Type</argument>
       </argument>
       <argument type="collection">
+        <argument>App\Form\FicheFormType</argument>
         <argument>App\Form\ForfaitFormType</argument>
+        <argument>App\Form\HorsForfaitFormType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\FormType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\ChoiceType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\FileType</argument>
@@ -1128,7 +1136,7 @@
       <argument type="service" id="form.registry"/>
     </service>
     <service id="form.extension" class="Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension" public="false">
-      <argument type="service" id=".service_locator.R13JaLi"/>
+      <argument type="service" id=".service_locator.z65tyG9"/>
       <argument type="collection">
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="iterator">
           <argument type="service" id="form.type_extension.form.transformation_failure_handling"/>
@@ -4712,8 +4720,12 @@
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\HomeController" class="App\Controller\HomeController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\HomeController" class="App\Controller\HomeController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\HomeController" class="App\Controller\HomeController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\FicheFormType" class="App\Form\FicheFormType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\FicheFormType" class="App\Form\FicheFormType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ForfaitFormType" class="App\Form\ForfaitFormType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\ForfaitFormType" class="App\Form\ForfaitFormType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\HorsForfaitFormType" class="App\Form\HorsForfaitFormType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\HorsForfaitFormType" class="App\Form\HorsForfaitFormType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\EtatRepository" class="App\Repository\EtatRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\EtatRepository" class="App\Repository\EtatRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\FicheRepository" class="App\Repository\FicheRepository" autowire="true" abstract="true"/>
@@ -5008,10 +5020,12 @@
       <argument type="service" id="debug.argument_resolver.not_tagged_controller.inner"/>
       <argument type="service" id="debug.stopwatch"/>
     </service>
-    <service id=".service_locator.R13JaLi" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.z65tyG9" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
+        <argument key="App\Form\FicheFormType" type="service" id="App\Form\FicheFormType"/>
         <argument key="App\Form\ForfaitFormType" type="service" id="App\Form\ForfaitFormType"/>
+        <argument key="App\Form\HorsForfaitFormType" type="service" id="App\Form\HorsForfaitFormType"/>
         <argument key="Symfony\Bridge\Doctrine\Form\Type\EntityType" type="service" id="form.type.entity"/>
         <argument key="Symfony\Component\Form\Extension\Core\Type\ChoiceType" type="service" id="form.type.choice"/>
         <argument key="Symfony\Component\Form\Extension\Core\Type\FileType" type="service" id="form.type.file"/>

@@ -5,8 +5,10 @@ namespace App\Controller;
 use App\Entity\Fiche;
 use App\Entity\Forfait;
 use App\Entity\HorsForfait;
+use App\Entity\TypeFrais;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use App\Form\ForfaitFormType;
+use App\Form\HorsForfaitFormType;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -16,17 +18,74 @@ class FicheController extends AbstractController
     /**
      * @Route("/fiche/{id_Fiche}", name="fiche")
      */
-    public function modifier($id_Fiche): Response
+    public function modifier($id_Fiche,Request $request): Response
     {
-        $repository = $this->getDoctrine()->getRepository(Fiche::class);
-        $laFiche = $repository->find($id_Fiche);
-        $repository = $this->getDoctrine()->getRepository(Forfait::class);
-        $lesForfaits = $repository->findForfaitByFiche($id_Fiche);
-        $repository = $this->getDoctrine()->getRepository(HorsForfait::class);
-        $lesHorsForfaits = $repository->findHForfaitByFiche($id_Fiche);
+        // On cherche la fiche
 
-        return $this->render('fiche/modifFiche.html.twig',['fiche' => $laFiche,'lesHorsForfait' => $lesHorsForfaits ,'lesForfaits' => $lesForfaits]);
+        $repositoryF = $this->getDoctrine()->getRepository(Fiche::class);
+        $laFiche = $repositoryF->find($id_Fiche);
+
+        // On cherche les frais forfaitaires
+
+        $repositoryFo = $this->getDoctrine()->getRepository(Forfait::class);
+        $lesForfaits = $repositoryFo->findForfaitByFiche($id_Fiche);
+        
+
+
+        // On cherche les frais hors forfaitaires
+
+
+
+        $repositoryH = $this->getDoctrine()->getRepository(HorsForfait::class);
+        $lesHorsForfaits = $repositoryH->findHForfaitByFiche($id_Fiche);
+
+        
+        // On cherche les type de frais
+
+        $repositoryT = $this->getDoctrine()->getRepository(TypeFrais::class);
+        $lesTypes = $repositoryT->findAll();
+
+        // Formulaire des Forfaits
+
+        $formF = $this->createForm(ForfaitFormType::class, ['forfaits' => $lesForfaits]);
+        $formF->handleRequest($request);
+        if ($formF->isSubmitted() and $formF->isValid())
+        {
+            $dataF = $formF->getData();
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($dataF);
+            $em->flush();
+            $this->redirectToRoute("menu");
+        }
+
+
+        // Formulaire des  Hors Forfaits
+
+        
+        $formH = $this->createForm(HorsForfaitFormType::class);
+        $formH->handleRequest($request, $id_Fiche);
+        if ($formH->isSubmitted() and $formH->isValid())
+        {
+            $dataH = $formH->getData();
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($dataH);
+            $em->flush();
+            $this->redirectToRoute("menu");
+        }
+        
+        // Render
+
+        return $this->render('fiche/modifFiche.html.twig',
+        ['formF' => $formF->createView(),
+        'formH' => $formH->createView(),
+        'fiche' => $laFiche,
+        'lesHorsForfait' => $lesHorsForfaits ,
+        'lesForfaits' => $lesForfaits,
+        'types' => $lesTypes,
+        ]);
     }
+
+
     /**
      * @Route("/fiche/forfait/{id_Fiche}", name="modifForfait")
      */
@@ -47,7 +106,7 @@ class FicheController extends AbstractController
             $em->flush();
             $this->redirectToRoute("menu");
         }
-        return $this->render('fiche/modifFiche.html.twig',['form' => $form->createView(),'fiche' => $laFiche,'lesForfaits' => $lesForfaits]);
+        return $this->render('fiche/modifForfait.html.twig',['form' => $form->createView(),'fiche' => $laFiche,'lesForfaits' => $lesForfaits]);
     }
     /**
      * @Route("/fiche/Hforfait/{id_Fiche}", name="modifForfait")
@@ -69,6 +128,6 @@ class FicheController extends AbstractController
             $em->flush();
             $this->redirectToRoute("menu");
         }
-        return $this->render('fiche/modifFiche.html.twig',['form' => $form->createView(),'fiche' => $laFiche,'lesForfaits' => $lesHorsForfaits]);
+        return $this->render('fiche/modifHorsForfait.html.twig',['form' => $form->createView(),'fiche' => $laFiche,'lesForfaits' => $lesHorsForfaits]);
     }
 }

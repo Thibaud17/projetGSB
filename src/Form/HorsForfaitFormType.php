@@ -2,26 +2,26 @@
 
 namespace App\Form;
 
-use App\Entity\Forfait;
+use App\Entity\HorsForfait;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class ForfaitFormType extends AbstractType
+class HorsForfaitFormType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('qte')
-            
-            
+            ->add('libelle')
+            ->add('montant')
+            ->add('date')
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => Forfait::class,
+            'data_class' => HorsForfait::class,
         ]);
     }
 }

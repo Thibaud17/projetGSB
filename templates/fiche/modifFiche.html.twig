@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello FicheController!{% endblock %}
+{% block title %}Votre fiche du mois{% endblock %}
 
 {% block body %}
 <style>
@@ -11,27 +11,52 @@
 
 <div class="example-wrapper">
   <div class="jumbotron">
-    <h1>Edition du forfait</h1>
+    <h1>Edition de la fiche</h1>
   </div>
   <div class="container">
-    <table class="table table-bordered">
+    <div class="row">
+      <div class="card-body">
+        <h4>Voici les frais forfaits actuellement saisis : </h4>
+        <table class="table table-striped">
   <thead>
     <tr>
       <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
+      {% for type in types %}
+      <th scope="col">{{type.libelle}}</th>
+      {% endfor %}
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th scope="row">1</th>
-      <td>Otto</td>
-      <td>@mdo</td>
+      <td>Quantité :</td>
+      {{ form_start(formF) }}
+      {% for forfait in lesForfaits %}
+      
+        <td>{{ form_widget(formF.qte) }}</td>
+        
+      {% endfor %}
+    <button class="btn btn-primary" type="submit">Sauvegarder</button>
+    {{ form_end(formF) }}
     </tr>
   </tbody>
 </table>
+      <div class="row">
+        <a class="btn btn-primary">Modifier les frais forfaits</a>
+      </div>
+    </div>
 
-    <button class="btn btn-primary" type="submit">Sauvegarder</button>
+
+
+
+
+  <div class="row">
+    <div class="card-body">
+      <h4>Voici les frais hors forfaits actuellement saisis : </h4>
+      <br>
+      <div class="row">
+        <a href="#" class="btn btn-primary">Modifier les frais hors forfaits</a>
+      </div>
+    </div>
   </div>
-
+</div>
 {% endblock %}
