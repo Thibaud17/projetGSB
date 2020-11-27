@@ -47,6 +47,16 @@ class Fiche
      * @ORM\JoinColumn(name="ID_VISIT", referencedColumnName="ID_VISIT")
      */
     private $visiteur;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Forfait::class, mappedBy="laFiche")
+     */
+    private $lesForfaits;
+
+    public function __construct()
+    {
+        $this->lesForfaits = new ArrayCollection();
+    }
     
     public function getIdFiche(): ?int
     {
@@ -97,6 +107,36 @@ class Fiche
     public function setVisiteur($visiteur): self
     {
         $this->visiteur = $visiteur;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Forfait[]
+     */
+    public function getLesForfaits(): Collection
+    {
+        return $this->lesForfaits;
+    }
+
+    public function addLesForfait(Forfait $lesForfait): self
+    {
+        if (!$this->lesForfaits->contains($lesForfait)) {
+            $this->lesForfaits[] = $lesForfait;
+            $lesForfait->setLaFiche($this);
+        }
+
+        return $this;
+    }
+
+    public function removeLesForfait(Forfait $lesForfait): self
+    {
+        if ($this->lesForfaits->removeElement($lesForfait)) {
+            // set the owning side to null (unless already changed)
+            if ($lesForfait->getLaFiche() === $this) {
+                $lesForfait->setLaFiche(null);
+            }
+        }
 
         return $this;
     }

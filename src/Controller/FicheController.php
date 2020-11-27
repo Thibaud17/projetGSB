@@ -16,7 +16,41 @@ use Symfony\Component\Routing\Annotation\Route;
 class FicheController extends AbstractController
 {
     /**
-     * @Route("/fiche/{id_Fiche}", name="fiche")
+     * @Route("/fiche/", name="creaFiche")
+     */
+    public function creation(Request $request): Response
+    {
+        $laFiche=new Fiche();
+        
+
+        for ($i = 1; $i = 4; $i++)
+        {
+            $forfait= new Forfait();
+            $repositoryT = $this->getDoctrine()->getRepository(TypeFrais::class);
+            $leType = $repositoryT->find($i);
+            $forfait->setIdType($leType);
+            $laFiche->addLesForfait($forfait);
+        }
+        dump($laFiche);
+        $form = $this->createForm(FicheFormType::class,$laFiche);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() and $form->isValid())
+        {
+            $data = $form->getData();
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($data);
+            $em->flush();
+            $this->redirectToRoute("menu");
+        }
+        
+        return $this->render('fiche/modifFiche.html.twig',
+        [' 
+            form' => $form->createView(),
+        ]);
+    }
+
+    /**
+     * @Route("/fiche/{id_Fiche}", name="modFiche")
      */
     public function modifier($id_Fiche,Request $request): Response
     {

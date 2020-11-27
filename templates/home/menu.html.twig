@@ -17,7 +17,8 @@
       </div>
    <div class="card-body">
       <h5 class="card-title">Nous sommes le {{ "now"|date("d/m/Y") }}</h5>
-      <a href="{{ path('fiche', {'id_Fiche': laFiche.0.idFiche }) }}" class="btn btn-primary">Modifier de nouveaux frais</a>
+      <a href="{{ path('creaFiche') }}" class="btn btn-primary">Créer la fiche</a>
+      <a href="{{ path('modFiche', {'id_Fiche': laFiche.0.idFiche }) }}" class="btn btn-primary">Modifier de nouveaux frais</a>
    </div>
    <div class="card-footer text-muted">
 

@@ -16,6 +16,11 @@ class ForfaitFormType extends AbstractType
             
             
         ;
+        $builder->add('leType', [
+            'entry_type' => TypeFraisFormType::class,
+            'entry_options' => ['label' => false],
+            'allow_add' => true,
+        ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)

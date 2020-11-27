@@ -16,6 +16,11 @@ class FicheFormType extends AbstractType
             ->add('idEtat')
             ->add('visiteur')
         ;
+        $builder->add('lesForfaits', CollectionType::class, [
+            'entry_type' => ForfaitFormType::class,
+            'entry_options' => ['label' => false],
+            'allow_add' => true,
+        ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)

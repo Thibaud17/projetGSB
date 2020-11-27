@@ -49,6 +49,12 @@ class Forfait
      */
     private $idType;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Fiche::class, inversedBy="lesForfaits")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $laFiche;
+
     public function getIdForfait(): ?int
     {
         return $this->idForfait;
@@ -86,6 +92,18 @@ class Forfait
     public function setIdType(?TypeFrais $idType): self
     {
         $this->idType = $idType;
+
+        return $this;
+    }
+
+    public function getLaFiche(): ?Fiche
+    {
+        return $this->laFiche;
+    }
+
+    public function setLaFiche(?Fiche $laFiche): self
+    {
+        $this->laFiche = $laFiche;
 
         return $this;
     }
