@@ -171,6 +171,6 @@ class __TwigTemplate_614561360693cf5ba55899d2309b466094a2c4ad67b9a23d23ff1fa5177
         {%- endfor -%}
     </pre>
 {% endif %}
-", "@Doctrine/Collector/explain.html.twig", "C:\\data\\amarionneau\\PPE Projet\\gsb\\vendor\\doctrine\\doctrine-bundle\\Resources\\views\\Collector\\explain.html.twig");
+", "@Doctrine/Collector/explain.html.twig", "C:\\data\\amarionneau\\ppe_gsb\\gsb\\vendor\\doctrine\\doctrine-bundle\\Resources\\views\\Collector\\explain.html.twig");
     }
 }

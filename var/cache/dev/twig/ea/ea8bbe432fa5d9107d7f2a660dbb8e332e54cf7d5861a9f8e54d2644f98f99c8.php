@@ -204,6 +204,6 @@ class __TwigTemplate_01232700f33cf8e0f660e35e622a11a8c86bdc7c3132875e6ff4c0eaefa
         })|raw }}
     </div>
 {% endif %}
-", "@Twig/Exception/trace.html.twig", "C:\\data\\amarionneau\\PPE Projet\\gsb\\vendor\\symfony\\twig-bundle\\Resources\\views\\Exception\\trace.html.twig");
+", "@Twig/Exception/trace.html.twig", "C:\\data\\amarionneau\\ppe_gsb\\gsb\\vendor\\symfony\\twig-bundle\\Resources\\views\\Exception\\trace.html.twig");
     }
 }

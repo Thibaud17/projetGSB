@@ -13,7 +13,6 @@ return [
         '/_profiler/search_bar' => [[['_route' => '_profiler_search_bar', '_controller' => 'web_profiler.controller.profiler::searchBarAction'], null, null, null, false, false, null]],
         '/_profiler/phpinfo' => [[['_route' => '_profiler_phpinfo', '_controller' => 'web_profiler.controller.profiler::phpinfoAction'], null, null, null, false, false, null]],
         '/_profiler/open' => [[['_route' => '_profiler_open_file', '_controller' => 'web_profiler.controller.profiler::openAction'], null, null, null, false, false, null]],
-        '/fiche' => [[['_route' => 'creaFiche', '_controller' => 'App\\Controller\\FicheController::creation'], null, null, null, false, false, null]],
         '/' => [[['_route' => 'connexion', '_controller' => 'App\\Controller\\HomeController::connexion'], null, null, null, false, false, null]],
     ],
     [ // $regexpList
@@ -34,12 +33,15 @@ return [
                     .')'
                 .')'
                 .'|/fiche/(?'
-                    .'|([^/]++)(*:187)'
-                    .'|Hforfait/([^/]++)(*:212)'
+                    .'|([^/]++)(?'
+                        .'|(*:190)'
+                        .'|(*:198)'
+                    .')'
+                    .'|Hforfait/([^/]++)(*:224)'
                 .')'
                 .'|/menu(?'
-                    .'|/([^/]++)(*:238)'
-                    .'|JSON/([^/]++)(*:259)'
+                    .'|/([^/]++)(*:250)'
+                    .'|JSON/([^/]++)(*:271)'
                 .')'
             .')/?$}sD',
     ],
@@ -51,10 +53,11 @@ return [
         136 => [[['_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception_panel::body'], ['token'], null, null, false, false, null]],
         149 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
         159 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
-        187 => [[['_route' => 'modFiche', '_controller' => 'App\\Controller\\FicheController::modifier'], ['id_Fiche'], null, null, false, true, null]],
-        212 => [[['_route' => 'modifForfait', '_controller' => 'App\\Controller\\FicheController::modifierHorsForfait'], ['id_Fiche'], null, null, false, true, null]],
-        238 => [[['_route' => 'menu', '_controller' => 'App\\Controller\\HomeController::menu'], ['id'], null, null, false, true, null]],
-        259 => [
+        190 => [[['_route' => 'creaFiche', '_controller' => 'App\\Controller\\FicheController::creation'], ['id'], null, null, false, true, null]],
+        198 => [[['_route' => 'modFiche', '_controller' => 'App\\Controller\\FicheController::modifier'], ['id_Fiche'], null, null, false, true, null]],
+        224 => [[['_route' => 'modifForfait', '_controller' => 'App\\Controller\\FicheController::modifierHorsForfait'], ['id_Fiche'], null, null, false, true, null]],
+        250 => [[['_route' => 'menu', '_controller' => 'App\\Controller\\HomeController::menu'], ['id'], null, null, false, true, null]],
+        271 => [
             [['_route' => 'menuJSON', '_controller' => 'App\\Controller\\HomeController::menuJSON'], ['id'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],

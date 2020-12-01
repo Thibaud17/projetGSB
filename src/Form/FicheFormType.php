@@ -12,11 +12,7 @@ class FicheFormType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder
-            ->add('mois')
 
-
-        ;
         $builder->add('lesForfaits', CollectionType::class, [
             'entry_type' => ForfaitFormType::class,
             'entry_options' => ['label' => false],

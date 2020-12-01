@@ -803,6 +803,6 @@ class __TwigTemplate_3431111bdd8552f111c4d5efe0b038f1dfdc10808aaa8ade5686f9d7a0f
         </table>
     {% endif %}
 {% endblock %}
-", "@WebProfiler/Collector/config.html.twig", "C:\\data\\amarionneau\\PPE Projet\\gsb\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Collector\\config.html.twig");
+", "@WebProfiler/Collector/config.html.twig", "C:\\data\\amarionneau\\ppe_gsb\\gsb\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Collector\\config.html.twig");
     }
 }

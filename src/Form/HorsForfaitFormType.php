@@ -2,6 +2,7 @@
 
 namespace App\Form;
 
+use App\Form\CollectionType;
 use App\Entity\HorsForfait;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;

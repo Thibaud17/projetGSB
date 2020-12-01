@@ -639,6 +639,6 @@ class __TwigTemplate_964bf0244d40613f59ace355bef23de7c8f25e20342492156a13e34eb16
     });
 
 /*]]>*/</script>
-", "@Twig/base_js.html.twig", "C:\\data\\amarionneau\\PPE Projet\\gsb\\vendor\\symfony\\twig-bundle\\Resources\\views\\base_js.html.twig");
+", "@Twig/base_js.html.twig", "C:\\data\\amarionneau\\ppe_gsb\\gsb\\vendor\\symfony\\twig-bundle\\Resources\\views\\base_js.html.twig");
     }
 }

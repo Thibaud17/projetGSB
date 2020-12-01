@@ -5,13 +5,13 @@ namespace App\Controller;
 use App\Entity\Fiche;
 use App\Entity\Forfait;
 use App\Entity\HorsForfait;
+use App\Entity\Visiteur;
 use App\Entity\TypeFrais;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use App\Form\ForfaitFormType;
 use App\Form\FicheFormType;
 use App\Form\TypeFraisFormType;
 use App\Form\HorsForfaitFormType;
-
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -19,26 +19,49 @@ use Symfony\Component\Routing\Annotation\Route;
 class FicheController extends AbstractController
 {
     /**
-     * @Route("/fiche", name="creaFiche")
+     * @Route("/fiche/{id}", name="creaFiche")
      */
-    public function creation(Request $request): Response
+    public function creation(Request $request,$id): Response
     {
-        $laFiche=new Fiche();
+        $repositoryFiche = $this->getDoctrine()->getRepository( Fiche::class);
+        $lastFiche=$repositoryFiche->findLastFiche($id);
+        $fiche= new Fiche();
+        $fiche->setidFiche($lastFiche[0]->getidFiche()+1);
+
+        $repositoryVis = $this->getDoctrine()->getRepository(Visiteur::class);
+        $visiteur = $repositoryVis->find($id);
+        $fiche->setVisiteur($visiteur);
+        dump($fiche);
+
         
 
-        $forfait= new Forfait();
-        $repositoryT = $this->getDoctrine()->getRepository(TypeFrais::class);
-        $leType = $repositoryT->find(1);
-        $forfait->setIdType($leType);
-        $laFiche->addLesForfait($forfait);
-        $repositoryT = $this->getDoctrine()->getRepository(TypeFrais::class);
-        $leType = $repositoryT->find(2);
-        $forfait->setIdType($leType);
-        $laFiche->addLesForfait($forfait);
+        //$leType1 = $repositoryT->findunType(1);
 
-        dump($laFiche);
 
-        $form = $this->createForm(FicheFormType::class,$laFiche);
+        //dump($leType1);
+        //$forfait1->addLeType($leType1);
+
+
+       /* $forfait2= new Forfait();
+        $leType2 = $repositoryT->findunType(2);
+        $forfait2->addLeType($leType2);
+
+        $forfait3= new Forfait();
+        $leType3 = $repositoryT->findunType(3);
+        $forfait3->addLeType($leType3);
+
+        $forfait4= new Forfait();
+        $leType4 = $repositoryT->findunType(4);
+        $forfait4->addLeType($leType4);
+     
+
+        $laFiche->addLesForfait($forfait1);
+        $laFiche->addLesForfait($forfait2);
+        $laFiche->addLesForfait($forfait3);
+        $laFiche->addLesForfait($forfait4);
+        */
+
+        $form = $this->createForm(FicheFormType::class,$fiche);
         $form->handleRequest($request);
         if ($form->isSubmitted() and $form->isValid())
         {

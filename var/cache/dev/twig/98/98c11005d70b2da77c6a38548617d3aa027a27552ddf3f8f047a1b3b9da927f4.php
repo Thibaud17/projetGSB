@@ -79,6 +79,6 @@ class __TwigTemplate_780f541009d1fc0afdc40d65fe78c3b1fa8b7e9b82e8a43b8117e1daa96
 /*
 {{ include('@Twig/Exception/exception.txt.twig', { exception: exception }) }}
 */
-", "@Twig/Exception/exception.css.twig", "C:\\data\\amarionneau\\PPE Projet\\gsb\\vendor\\symfony\\twig-bundle\\Resources\\views\\Exception\\exception.css.twig");
+", "@Twig/Exception/exception.css.twig", "C:\\data\\amarionneau\\ppe_gsb\\gsb\\vendor\\symfony\\twig-bundle\\Resources\\views\\Exception\\exception.css.twig");
     }
 }

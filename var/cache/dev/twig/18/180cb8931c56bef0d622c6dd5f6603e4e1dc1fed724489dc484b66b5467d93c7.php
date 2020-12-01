@@ -59,6 +59,6 @@ class __TwigTemplate_671597a207d70e058f31b092c63d394857d1a5e5e11aaf4b7bc0f3c968c
 
     public function getSourceContext()
     {
-        return new Source("", "@Framework/Form/button_label.html.php", "C:\\data\\amarionneau\\PPE Projet\\gsb\\vendor\\symfony\\framework-bundle\\Resources\\views\\Form\\button_label.html.php");
+        return new Source("", "@Framework/Form/button_label.html.php", "C:\\data\\amarionneau\\ppe_gsb\\gsb\\vendor\\symfony\\framework-bundle\\Resources\\views\\Form\\button_label.html.php");
     }
 }

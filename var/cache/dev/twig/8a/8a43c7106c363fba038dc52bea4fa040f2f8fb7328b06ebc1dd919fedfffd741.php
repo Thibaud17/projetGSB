@@ -1671,6 +1671,6 @@ class __TwigTemplate_32c680b2ab67a967ed8ebcbc3e508647b5e56ff5b471e589f27343a009f
         </tbody>
     </table>
 {% endmacro %}
-", "@Doctrine/Collector/db.html.twig", "C:\\data\\amarionneau\\PPE Projet\\gsb\\vendor\\doctrine\\doctrine-bundle\\Resources\\views\\Collector\\db.html.twig");
+", "@Doctrine/Collector/db.html.twig", "C:\\data\\amarionneau\\ppe_gsb\\gsb\\vendor\\doctrine\\doctrine-bundle\\Resources\\views\\Collector\\db.html.twig");
     }
 }

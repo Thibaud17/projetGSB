@@ -1,7 +1,16 @@
 security:
     # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
+    #enable_authenticator_manager: true
     providers:
+        # used to reload user from session & other features (e.g. switch_user)
+        app_user_provider:
+            entity:
+                class: App\Entity\Visiteur
+                property: login
         users_in_memory: { memory: null }
+    encoders:
+        App\Entity\Visiteur:
+            algorithm: auto
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/

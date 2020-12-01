@@ -275,6 +275,6 @@ class __TwigTemplate_f8fead1340b721073170433e6c1df84eba55e72c2be9584ca42e7c20272
     </body>
 </html>
 {% block after_html %}{% endblock %}
-", "@Twig/layout.html.twig", "C:\\data\\amarionneau\\PPE Projet\\gsb\\vendor\\symfony\\twig-bundle\\Resources\\views\\layout.html.twig");
+", "@Twig/layout.html.twig", "C:\\data\\amarionneau\\ppe_gsb\\gsb\\vendor\\symfony\\twig-bundle\\Resources\\views\\layout.html.twig");
     }
 }

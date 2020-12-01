@@ -63,6 +63,12 @@ class Fiche
         return $this->idFiche;
     }
 
+    public function setIdFiche($idFiche): self
+    {
+        $this->idFiche = $idFiche;
+        return $this;
+    }
+
     public function getMois(): ?\DateTimeInterface
     {
         return $this->mois;
@@ -108,7 +114,7 @@ class Fiche
     public function setVisiteur($visiteur): self
     {
         $this->visiteur = $visiteur;
-
+        
         return $this;
     }
 

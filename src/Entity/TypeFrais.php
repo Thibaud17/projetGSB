@@ -35,6 +35,14 @@ class TypeFrais
      */
     private $montant;
 
+    /*
+    /**
+     * @ORM\ManyToOne(targetEntity=Forfait::class, inversedBy="leType")
+     * @ORM\JoinColumn(name="ID_FORFAIT", referencedColumnName="ID_FORFAIT", nullable=true)
+     
+    private $lesForfaits;
+    */
+
     public function getIdType(): ?int
     {
         return $this->idType;
@@ -63,6 +71,18 @@ class TypeFrais
 
         return $this;
     }
+    /*
+    public function getLesForfaits(): ?Forfait
+    {
+        return $this->lesForfaits;
+    }
 
+    public function setLesForfaits(?Forfait $lesForfaits): self
+    {
+        $this->lesForfaits = $lesForfaits;
+
+        return $this;
+    }
+    */
 
 }

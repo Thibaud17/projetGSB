@@ -417,6 +417,6 @@ class __TwigTemplate_9c5842a08940ea5263c052b4b1ee1398cd7692070326d2f212914ced590
     });
 })();
 </script>
-", "@WebProfiler/Profiler/settings.html.twig", "C:\\data\\amarionneau\\PPE Projet\\gsb\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Profiler\\settings.html.twig");
+", "@WebProfiler/Profiler/settings.html.twig", "C:\\data\\amarionneau\\ppe_gsb\\gsb\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Profiler\\settings.html.twig");
     }
 }

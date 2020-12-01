@@ -17,30 +17,15 @@
     <div class="row">
       <div class="card-body">
         <h4>Voici les frais forfaits actuellement saisis : </h4>
-        <table class="table table-striped">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      {% for type in form.lesForfaits %}
-      <th scope="col">{{type.libelle}}</th>
-      {% endfor %}
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Quantité :</td>
-      {{ form_start(form) }}
-      {% for forfait in form.lesForfaits %}
-      
-        <td>{{ form_row(forfait.qte) }}</td>
-        
-      {% endfor %}
-      
-    <button class="btn btn-primary" type="submit">Sauvegarder</button>
-    {{ form_end(form) }}
-    </tr>
-  </tbody>
-</table>
+        <div>
+        {{ form_start(form) }}
+        {% for forfait in form.lesForfaits %}
+          {{ form_row(forfait.qte) }}
+          {{ form_row(forfait.leType) }}
+        {% endfor %}
+      </div>
+        <button class="btn btn-primary" type="submit">Sauvegarder</button>
+        {{ form_end(form) }}
       <div class="row">
         <a class="btn btn-primary">Modifier les frais forfaits</a>
       </div>

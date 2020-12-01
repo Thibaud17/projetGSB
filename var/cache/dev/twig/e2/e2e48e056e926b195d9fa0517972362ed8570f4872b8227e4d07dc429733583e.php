@@ -189,6 +189,6 @@ class __TwigTemplate_139505355a2610998307543bb6153eac5df28b9e6a0caa38a81a2647edd
         </div>
     </div>
 </div>
-", "@Twig/Exception/traces.html.twig", "C:\\data\\amarionneau\\PPE Projet\\gsb\\vendor\\symfony\\twig-bundle\\Resources\\views\\Exception\\traces.html.twig");
+", "@Twig/Exception/traces.html.twig", "C:\\data\\amarionneau\\ppe_gsb\\gsb\\vendor\\symfony\\twig-bundle\\Resources\\views\\Exception\\traces.html.twig");
     }
 }

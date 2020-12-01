@@ -47,4 +47,18 @@ class TypeFraisRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    public function findunType($idType)
+    {
+        return $this->createQueryBuilder('p')
+        ->where('p.idType = :idType')
+        ->setParameter('idType', $idType)
+        ->getQuery()
+        ->getResult();
+    }
+
+    public function createIsTypeQueryBuilder()
+    {
+        return $this->createQueryBuilder('u');
+    }
 }

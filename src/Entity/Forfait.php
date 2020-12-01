@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -16,7 +18,6 @@ class Forfait
      * @var int
      *
      * @ORM\Column(name="ID_FORFAIT", type="integer", nullable=false)
-
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
@@ -39,21 +40,22 @@ class Forfait
      */
     private $idFiche;
 
-    /**
-     * @var \TypeFrais
-     *
-     * @ORM\ManyToOne(targetEntity="TypeFrais")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="ID_TYPE", referencedColumnName="ID_TYPE")
-     * })
-     */
-    private $idType;
 
     /**
      * @ORM\ManyToOne(targetEntity=Fiche::class, inversedBy="lesForfaits")
      * @ORM\JoinColumn(nullable=false)
      */
     private $laFiche;
+
+    /**
+     * @ORM\OneToMany(targetEntity=TypeFrais::class, mappedBy="lesForfaits")
+     */
+    private $leType;
+
+    public function __construct()
+    {
+        $this->leType = new ArrayCollection();
+    }
 
     public function getIdForfait(): ?int
     {
@@ -84,18 +86,6 @@ class Forfait
         return $this;
     }
 
-    public function getIdType(): ?TypeFrais
-    {
-        return $this->idType;
-    }
-
-    public function setIdType(?TypeFrais $idType): self
-    {
-        $this->idType = $idType;
-
-        return $this;
-    }
-
     public function getLaFiche(): ?Fiche
     {
         return $this->laFiche;
@@ -104,6 +94,36 @@ class Forfait
     public function setLaFiche(?Fiche $laFiche): self
     {
         $this->laFiche = $laFiche;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|TypeFrais[]
+     */
+    public function getLeType(): Collection
+    {
+        return $this->leType;
+    }
+
+    public function addLeType(TypeFrais $leType): self
+    {
+        if (!$this->leType->contains($leType)) {
+            $this->leType[] = $leType;
+            $leType->setLesForfaits($this);
+        }
+
+        return $this;
+    }
+
+    public function removeLeType(TypeFrais $leType): self
+    {
+        if ($this->leType->removeElement($leType)) {
+            // set the owning side to null (unless already changed)
+            if ($leType->getLesForfaits() === $this) {
+                $leType->setLesForfaits(null);
+            }
+        }
 
         return $this;
     }
