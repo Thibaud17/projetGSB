@@ -47,4 +47,13 @@ class VisiteurRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    public function findunVis($idVis)
+    {
+        return $this->createQueryBuilder('p')
+        ->where('p.idVisit = :idVis')
+        ->setParameter('idVis', $idVis)
+        ->getQuery()
+        ->getResult();
+    }
 }

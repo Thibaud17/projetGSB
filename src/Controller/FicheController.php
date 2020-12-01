@@ -12,6 +12,7 @@ use App\Form\ForfaitFormType;
 use App\Form\FicheFormType;
 use App\Form\TypeFraisFormType;
 use App\Form\HorsForfaitFormType;
+use DateTime;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -30,42 +31,43 @@ class FicheController extends AbstractController
 
         $repositoryVis = $this->getDoctrine()->getRepository(Visiteur::class);
         $visiteur = $repositoryVis->find($id);
+        dump($visiteur);
         $fiche->setVisiteur($visiteur);
-        dump($fiche);
 
-        
+        $repositoryT = $this->getDoctrine()->getRepository(TypeFrais::class);
+        $forfait1= new Forfait();
+        $leType1 = $repositoryT->findunType(1);
+        dump($leType1);
+        $forfait1->setType($leType1[0]);
 
-        //$leType1 = $repositoryT->findunType(1);
-
-
-        //dump($leType1);
-        //$forfait1->addLeType($leType1);
-
-
-       /* $forfait2= new Forfait();
+        $forfait2= new Forfait();
         $leType2 = $repositoryT->findunType(2);
-        $forfait2->addLeType($leType2);
+        $forfait2->setType($leType2[0]);
 
         $forfait3= new Forfait();
         $leType3 = $repositoryT->findunType(3);
-        $forfait3->addLeType($leType3);
+        $forfait3->setType($leType3[0]);
 
         $forfait4= new Forfait();
         $leType4 = $repositoryT->findunType(4);
-        $forfait4->addLeType($leType4);
+        $forfait4->setType($leType4[0]);
      
 
-        $laFiche->addLesForfait($forfait1);
-        $laFiche->addLesForfait($forfait2);
-        $laFiche->addLesForfait($forfait3);
-        $laFiche->addLesForfait($forfait4);
-        */
+        $fiche->addLesForfait($forfait1);
+        $fiche->addLesForfait($forfait2);
+        $fiche->addLesForfait($forfait3);
+        $fiche->addLesForfait($forfait4);
+
+        date_default_timezone_set('Europe/Paris');
+        $mois = new DateTime('now');
 
         $form = $this->createForm(FicheFormType::class,$fiche);
         $form->handleRequest($request);
         if ($form->isSubmitted() and $form->isValid())
         {
             $data = $form->getData();
+            $data->setMois($mois);
+            $data->setEtat();
             $em = $this->getDoctrine()->getManager();
             $em->persist($data);
             $em->flush();
@@ -76,6 +78,12 @@ class FicheController extends AbstractController
         ['form' => $form->createView(),
         ]);
     }
+
+
+
+
+
+
 
     /**
      * @Route("/fiche/{id_Fiche}", name="modFiche")
@@ -145,51 +153,5 @@ class FicheController extends AbstractController
         'lesForfaits' => $lesForfaits,
         'types' => $lesTypes,
         ]);
-    }
-
-
-    /**
-     * @Route("/fiche/forfait/{id_Fiche}", name="modifForfait")
-     */
-    public function modifierForfait($id_Fiche,Request $request): Response
-    {
-        $repository = $this->getDoctrine()->getRepository(Fiche::class);
-        $laFiche = $repository->find($id_Fiche);
-        $repository = $this->getDoctrine()->getRepository(Forfait::class);
-        $lesForfaits = $repository->findForfaitByFiche($id_Fiche);
-
-        $form = $this->createForm(ForfaitFormType::class,$id_Fiche);
-        $form->handleRequest($request);
-        if ($form->isSubmitted() and $form->isValid())
-        {
-            $data = $form->getData();
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($data);
-            $em->flush();
-            $this->redirectToRoute("menu");
-        }
-        return $this->render('fiche/modifForfait.html.twig',['form' => $form->createView(),'fiche' => $laFiche,'lesForfaits' => $lesForfaits]);
-    }
-    /**
-     * @Route("/fiche/Hforfait/{id_Fiche}", name="modifForfait")
-     */
-    public function modifierHorsForfait($id_Fiche,Request $request): Response
-    {
-        $repository = $this->getDoctrine()->getRepository(Fiche::class);
-        $laFiche = $repository->find($id_Fiche);
-        $repository = $this->getDoctrine()->getRepository(HorsForfait::class);
-        $lesHorsForfaits = $repository->findHForfaitByFiche($id_Fiche);
-
-        $form = $this->createForm(ForfaitFormType::class,$id_Fiche);
-        $form->handleRequest($request);
-        if ($form->isSubmitted() and $form->isValid())
-        {
-            $data = $form->getData();
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($data);
-            $em->flush();
-            $this->redirectToRoute("menu");
-        }
-        return $this->render('fiche/modifHorsForfait.html.twig',['form' => $form->createView(),'fiche' => $laFiche,'lesForfaits' => $lesHorsForfaits]);
     }
 }

@@ -49,7 +49,7 @@ class Fiche
     private $visiteur;
 
     /**
-     * @ORM\OneToMany(targetEntity=Forfait::class, mappedBy="laFiche")
+     * @ORM\OneToMany(targetEntity=Forfait::class, mappedBy="laFiche",cascade={"persist"})
      */
     private $lesForfaits;
 
@@ -92,19 +92,6 @@ class Fiche
 
         return $this;
     }
-    /*
-    public function getIdVisit(): ?Visiteur
-    {
-        return $this->idVisit;
-    }
-
-    public function setIdVisit(?Visiteur $idVisit): self
-    {
-        $this->idVisit = $idVisit;
-
-        return $this;
-    }
-    */
 
     public function getVisiteur()
     {

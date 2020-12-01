@@ -32,16 +32,13 @@ return [
                         .'|(*:159)'
                     .')'
                 .')'
-                .'|/fiche/(?'
-                    .'|([^/]++)(?'
-                        .'|(*:190)'
-                        .'|(*:198)'
-                    .')'
-                    .'|Hforfait/([^/]++)(*:224)'
+                .'|/fiche/([^/]++)(?'
+                    .'|(*:187)'
+                    .'|(*:195)'
                 .')'
                 .'|/menu(?'
-                    .'|/([^/]++)(*:250)'
-                    .'|JSON/([^/]++)(*:271)'
+                    .'|/([^/]++)(*:221)'
+                    .'|JSON/([^/]++)(*:242)'
                 .')'
             .')/?$}sD',
     ],
@@ -53,11 +50,10 @@ return [
         136 => [[['_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception_panel::body'], ['token'], null, null, false, false, null]],
         149 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
         159 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
-        190 => [[['_route' => 'creaFiche', '_controller' => 'App\\Controller\\FicheController::creation'], ['id'], null, null, false, true, null]],
-        198 => [[['_route' => 'modFiche', '_controller' => 'App\\Controller\\FicheController::modifier'], ['id_Fiche'], null, null, false, true, null]],
-        224 => [[['_route' => 'modifForfait', '_controller' => 'App\\Controller\\FicheController::modifierHorsForfait'], ['id_Fiche'], null, null, false, true, null]],
-        250 => [[['_route' => 'menu', '_controller' => 'App\\Controller\\HomeController::menu'], ['id'], null, null, false, true, null]],
-        271 => [
+        187 => [[['_route' => 'creaFiche', '_controller' => 'App\\Controller\\FicheController::creation'], ['id'], null, null, false, true, null]],
+        195 => [[['_route' => 'modFiche', '_controller' => 'App\\Controller\\FicheController::modifier'], ['id_Fiche'], null, null, false, true, null]],
+        221 => [[['_route' => 'menu', '_controller' => 'App\\Controller\\HomeController::menu'], ['id'], null, null, false, true, null]],
+        242 => [
             [['_route' => 'menuJSON', '_controller' => 'App\\Controller\\HomeController::menuJSON'], ['id'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],

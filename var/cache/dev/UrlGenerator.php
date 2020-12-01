@@ -17,7 +17,6 @@ return [
     '_profiler_exception_css' => [['token'], ['_controller' => 'web_profiler.controller.exception_panel::stylesheet'], [], [['text', '/exception.css'], ['variable', '/', '[^/]++', 'token'], ['text', '/_profiler']], [], []],
     'creaFiche' => [['id'], ['_controller' => 'App\\Controller\\FicheController::creation'], [], [['variable', '/', '[^/]++', 'id'], ['text', '/fiche']], [], []],
     'modFiche' => [['id_Fiche'], ['_controller' => 'App\\Controller\\FicheController::modifier'], [], [['variable', '/', '[^/]++', 'id_Fiche'], ['text', '/fiche']], [], []],
-    'modifForfait' => [['id_Fiche'], ['_controller' => 'App\\Controller\\FicheController::modifierHorsForfait'], [], [['variable', '/', '[^/]++', 'id_Fiche'], ['text', '/fiche/Hforfait']], [], []],
     'connexion' => [[], ['_controller' => 'App\\Controller\\HomeController::connexion'], [], [['text', '/']], [], []],
     'menu' => [['id'], ['_controller' => 'App\\Controller\\HomeController::menu'], [], [['variable', '/', '[^/]++', 'id'], ['text', '/menu']], [], []],
     'menuJSON' => [['id'], ['_controller' => 'App\\Controller\\HomeController::menuJSON'], [], [['variable', '/', '[^/]++', 'id'], ['text', '/menuJSON']], [], []],

@@ -31,26 +31,17 @@ class Forfait
     private $qte;
 
     /**
-     * @var \Fiche
-     *
-     * @ORM\ManyToOne(targetEntity="Fiche")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="ID_FICHE", referencedColumnName="ID_FICHE")
-     * })
-     */
-    private $idFiche;
-
-
-    /**
-     * @ORM\ManyToOne(targetEntity=Fiche::class, inversedBy="lesForfaits")
+     * @ORM\ManyToOne(targetEntity=Fiche::class, inversedBy="lesForfaits",cascade={"persist"})
      * @ORM\JoinColumn(nullable=false)
      */
     private $laFiche;
+    
 
     /**
-     * @ORM\OneToMany(targetEntity=TypeFrais::class, mappedBy="lesForfaits")
+     * @ORM\ManyToOne(targetEntity=TypeFrais::class, inversedBy="lesFraisForfaits",cascade={"persist"})
+     * @ORM\JoinColumn(name="ID_TYPE", referencedColumnName="ID_TYPE")
      */
-    private $leType;
+    private $type;
 
     public function __construct()
     {
@@ -97,36 +88,17 @@ class Forfait
 
         return $this;
     }
-
-    /**
-     * @return Collection|TypeFrais[]
-     */
-    public function getLeType(): Collection
+ 
+    
+    public function getType(): ?TypeFrais
     {
-        return $this->leType;
+        return $this->type;
     }
 
-    public function addLeType(TypeFrais $leType): self
+    public function setType(?TypeFrais $type): self
     {
-        if (!$this->leType->contains($leType)) {
-            $this->leType[] = $leType;
-            $leType->setLesForfaits($this);
-        }
+        $this->type = $type;
 
         return $this;
     }
-
-    public function removeLeType(TypeFrais $leType): self
-    {
-        if ($this->leType->removeElement($leType)) {
-            // set the owning side to null (unless already changed)
-            if ($leType->getLesForfaits() === $this) {
-                $leType->setLesForfaits(null);
-            }
-        }
-
-        return $this;
-    }
-
-
 }

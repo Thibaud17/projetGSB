@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -35,13 +37,17 @@ class TypeFrais
      */
     private $montant;
 
-    /*
+
     /**
-     * @ORM\ManyToOne(targetEntity=Forfait::class, inversedBy="leType")
-     * @ORM\JoinColumn(name="ID_FORFAIT", referencedColumnName="ID_FORFAIT", nullable=true)
-     
-    private $lesForfaits;
-    */
+     * @ORM\OneToMany(targetEntity=Forfait::class, mappedBy="type",cascade={"persist"})
+     */
+    private $lesFraisForfaits;
+
+    public function __construct()
+    {
+        $this->lesFraisForfaits = new ArrayCollection();
+    }
+    
 
     public function getIdType(): ?int
     {
@@ -71,18 +77,35 @@ class TypeFrais
 
         return $this;
     }
-    /*
-    public function getLesForfaits(): ?Forfait
+
+
+    /**
+     * @return Collection|Forfait[]
+     */
+    public function getLesFraisForfaits(): Collection
     {
-        return $this->lesForfaits;
+        return $this->lesFraisForfaits;
     }
 
-    public function setLesForfaits(?Forfait $lesForfaits): self
+    public function addLesFraisForfait(Forfait $lesFraisForfait): self
     {
-        $this->lesForfaits = $lesForfaits;
+        if (!$this->lesFraisForfaits->contains($lesFraisForfait)) {
+            $this->lesFraisForfaits[] = $lesFraisForfait;
+            $lesFraisForfait->setType($this);
+        }
 
         return $this;
     }
-    */
 
+    public function removeLesFraisForfait(Forfait $lesFraisForfait): self
+    {
+        if ($this->lesFraisForfaits->removeElement($lesFraisForfait)) {
+            // set the owning side to null (unless already changed)
+            if ($lesFraisForfait->getType() === $this) {
+                $lesFraisForfait->setType(null);
+            }
+        }
+
+        return $this;
+    }
 }

@@ -20,14 +20,15 @@
         <div>
         {{ form_start(form) }}
         {% for forfait in form.lesForfaits %}
+
           {{ form_row(forfait.qte) }}
           {{ form_row(forfait.leType) }}
+
         {% endfor %}
-      </div>
-        <button class="btn btn-primary" type="submit">Sauvegarder</button>
+        </div>
+        <button class="btn btn-primary" type="submit">Modifier les frais forfaits</button>
         {{ form_end(form) }}
       <div class="row">
-        <a class="btn btn-primary">Modifier les frais forfaits</a>
       </div>
     </div>
 
