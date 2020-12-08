@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Etat;
 use App\Entity\Fiche;
 use App\Entity\Forfait;
 use App\Entity\HorsForfait;
@@ -24,15 +25,18 @@ class FicheController extends AbstractController
      */
     public function creation(Request $request,$id): Response
     {
+
+        //Creation de la fiche affilier au visiteur connecté
+
         $repositoryFiche = $this->getDoctrine()->getRepository( Fiche::class);
         $lastFiche=$repositoryFiche->findLastFiche($id);
         $fiche= new Fiche();
         $fiche->setidFiche($lastFiche[0]->getidFiche()+1);
 
-        $repositoryVis = $this->getDoctrine()->getRepository(Visiteur::class);
-        $visiteur = $repositoryVis->find($id);
-        dump($visiteur);
-        $fiche->setVisiteur($visiteur);
+        
+
+
+        //Instanciation des 4 forfaits types 
 
         $repositoryT = $this->getDoctrine()->getRepository(TypeFrais::class);
         $forfait1= new Forfait();
@@ -51,15 +55,24 @@ class FicheController extends AbstractController
         $forfait4= new Forfait();
         $leType4 = $repositoryT->findunType(4);
         $forfait4->setType($leType4[0]);
-     
+        
 
         $fiche->addLesForfait($forfait1);
         $fiche->addLesForfait($forfait2);
         $fiche->addLesForfait($forfait3);
         $fiche->addLesForfait($forfait4);
 
+        //Valeur fiche fixe
+
         date_default_timezone_set('Europe/Paris');
         $mois = new DateTime('now');
+
+        $repositoryState = $this->getDoctrine()->getRepository(Etat::class);
+        $state= new Etat();
+        $state=$repositoryState->find($id);
+
+        $repositoryVis = $this->getDoctrine()->getRepository(Visiteur::class);
+        $visiteur = $repositoryVis->findunVis($id);
 
         $form = $this->createForm(FicheFormType::class,$fiche);
         $form->handleRequest($request);
@@ -67,13 +80,16 @@ class FicheController extends AbstractController
         {
             $data = $form->getData();
             $data->setMois($mois);
-            $data->setEtat();
+            $data->setIdEtat($state);
+            $data->setVisiteur($visiteur[0]);
+            dump($data);
             $em = $this->getDoctrine()->getManager();
             $em->persist($data);
             $em->flush();
+
+
             $this->redirectToRoute("menu");
         }
-        
         return $this->render('fiche/creaFiche.html.twig',
         ['form' => $form->createView(),
         ]);

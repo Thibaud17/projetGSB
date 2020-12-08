@@ -32,7 +32,7 @@ class Forfait
 
     /**
      * @ORM\ManyToOne(targetEntity=Fiche::class, inversedBy="lesForfaits",cascade={"persist"})
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(name="ID_FICHE", referencedColumnName="ID_FICHE")
      */
     private $laFiche;
     

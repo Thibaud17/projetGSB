@@ -15,6 +15,7 @@ class ForfaitFormType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        //$repo = $this->getDoctrine()->getRepository(TypeFrais::class);
         $builder
             ->add('qte') 
         ;
@@ -26,7 +27,7 @@ class ForfaitFormType extends AbstractType
                 {
                     return $repo->createIsTypeQueryBuilder();
                 },
-                'disabled' => true
+                
             ])
         ;
 
