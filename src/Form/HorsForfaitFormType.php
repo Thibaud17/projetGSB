@@ -17,6 +17,7 @@ class HorsForfaitFormType extends AbstractType
             ->add('montant')
             ->add('date')
         ;
+
     }
 
     public function configureOptions(OptionsResolver $resolver)

@@ -61,6 +61,16 @@ class FicheController extends AbstractController
         $fiche->addLesForfait($forfait2);
         $fiche->addLesForfait($forfait3);
         $fiche->addLesForfait($forfait4);
+        
+
+        $Hforfait1= new HorsForfait();
+        $Hforfait2= new HorsForfait();
+        $Hforfait3= new HorsForfait();
+        $Hforfait4= new HorsForfait();
+        
+
+        $fiche->addLesHorsForfait($Hforfait1);
+        $fiche->addLesHorsForfait($Hforfait2);
 
         //Valeur fiche fixe
 
@@ -106,6 +116,8 @@ class FicheController extends AbstractController
      */
     public function modifier($id_Fiche,Request $request): Response
     {
+
+
         // On cherche la fiche
 
         $repositoryF = $this->getDoctrine()->getRepository(Fiche::class);
@@ -133,7 +145,7 @@ class FicheController extends AbstractController
 
         // Formulaire des Forfaits
 
-        $formF = $this->createForm(ForfaitFormType::class, ['forfaits' => $lesForfaits]);
+        $formF = $this->createForm(FicheFormType::class, $laFiche);
         $formF->handleRequest($request);
         if ($formF->isSubmitted() and $formF->isValid())
         {

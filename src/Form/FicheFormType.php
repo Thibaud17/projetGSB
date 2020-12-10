@@ -18,6 +18,12 @@ class FicheFormType extends AbstractType
             'entry_options' => ['label' => false],
             'allow_add' => true,
         ]);
+
+        $builder->add('lesHorsForfaits', CollectionType::class, [
+            'entry_type' => HorsForfaitFormType::class,
+            'entry_options' => ['label' => false],
+            'allow_add' => true,
+        ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)

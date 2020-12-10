@@ -83,7 +83,7 @@ class __TwigTemplate_c0665f675f3659634fcbf34510a6b80b0ca42d34c045ea12117d78f1ba2
         // line 30
         echo "        ";
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 31
+        // line 32
         echo "    </body>
 </html>
 ";
@@ -141,6 +141,8 @@ class __TwigTemplate_c0665f675f3659634fcbf34510a6b80b0ca42d34c045ea12117d78f1ba2
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
 
+        // line 31
+        echo "        ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -161,7 +163,7 @@ class __TwigTemplate_c0665f675f3659634fcbf34510a6b80b0ca42d34c045ea12117d78f1ba2
 
     public function getDebugInfo()
     {
-        return array (  135 => 30,  117 => 29,  99 => 5,  87 => 31,  84 => 30,  82 => 29,  68 => 18,  52 => 5,  46 => 1,);
+        return array (  145 => 31,  135 => 30,  117 => 29,  99 => 5,  87 => 32,  84 => 30,  82 => 29,  68 => 18,  52 => 5,  46 => 1,);
     }
 
     public function getSourceContext()
@@ -195,7 +197,8 @@ class __TwigTemplate_c0665f675f3659634fcbf34510a6b80b0ca42d34c045ea12117d78f1ba2
             </div>
         </nav>    
         {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+        {% block javascripts %}
+        {% endblock %}
     </body>
 </html>
 ", "base.html.twig", "C:\\data\\amarionneau\\ppe_gsb\\gsb\\templates\\base.html.twig");

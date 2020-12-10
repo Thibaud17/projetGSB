@@ -53,9 +53,15 @@ class Fiche
      */
     private $lesForfaits;
 
+    /**
+     * @ORM\OneToMany(targetEntity=HorsForfait::class, mappedBy="laFiche",cascade={"persist"})
+     */
+    private $lesHorsForfaits;
+
     public function __construct()
     {
         $this->lesForfaits = new ArrayCollection();
+        $this->lesHorsForfaits = new ArrayCollection();
     }
     
     public function getIdFiche(): ?int
@@ -129,6 +135,36 @@ class Fiche
             // set the owning side to null (unless already changed)
             if ($lesForfait->getLaFiche() === $this) {
                 $lesForfait->setLaFiche(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|HorsForfait[]
+     */
+    public function getLesHorsForfaits(): Collection
+    {
+        return $this->lesHorsForfaits;
+    }
+
+    public function addLesHorsForfait(HorsForfait $lesHorsForfait): self
+    {
+        if (!$this->lesHorsForfaits->contains($lesHorsForfait)) {
+            $this->lesHorsForfaits[] = $lesHorsForfait;
+            $lesHorsForfait->setLaFiche($this);
+        }
+
+        return $this;
+    }
+
+    public function removeLesHorsForfait(HorsForfait $lesHorsForfait): self
+    {
+        if ($this->lesHorsForfaits->removeElement($lesHorsForfait)) {
+            // set the owning side to null (unless already changed)
+            if ($lesHorsForfait->getLaFiche() === $this) {
+                $lesHorsForfait->setLaFiche(null);
             }
         }
 

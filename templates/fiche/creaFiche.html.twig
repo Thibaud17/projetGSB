@@ -18,34 +18,38 @@
     <div class="row">
       <div class="card-body">
         <h4>Voici les frais forfaits à saisir : </h4>
-        <div>
+        <div class="row">
         {{ form_start(form) }}
         {% for forfait in form.lesForfaits  %}
 
           {{ form_row(forfait.leType) }}
           {{ form_row(forfait.qte) }}
           
-
         {% endfor %}
         </div>
-        <button class="btn btn-primary" type="submit">Modifier les frais forfaits</button>
+        <button class="btn btn-primary" type="submit">Ajouter les frais forfaits</button>
         {{ form_end(form) }}
       <div class="row">
+      {{ form_start(form) }}
+
+        {% for forfait in form.lesHorsForfaits  %}
+
+          {{ form_row(forfait.libelle) }}
+          {{ form_row(forfait.montant) }}
+          {{ form_row(forfait.date) }}
+
+        {% endfor %}
+
+          <button class="btn btn-primary" type="submit">Ajouter les frais hors forfaits</button>
+          
+        {{ form_end(form) }}
       </div>
     </div>
 
 
+      
 
-
-
-  <div class="row">
-    <div class="card-body">
-      <h4>Voici les frais hors forfaits à saisir : </h4>
-      <br>
-      <div class="row">
-        <a href="#" class="btn btn-primary">Modifier les frais hors forfaits</a>
-      </div>
-    </div>
-  </div>
+        
+      
 </div>
 {% endblock %}

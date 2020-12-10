@@ -60,6 +60,12 @@ class HorsForfait
      */
     private $idFiche;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Fiche::class, inversedBy="lesHorsForfaits",cascade={"persist"})
+     * @ORM\JoinColumn(name="ID_FICHE", referencedColumnName="ID_FICHE")
+     */
+    private $laFiche;
+
     public function getIdHForfait(): ?int
     {
         return $this->idHForfait;
@@ -121,6 +127,18 @@ class HorsForfait
     public function setIdFiche(?Fiche $idFiche): self
     {
         $this->idFiche = $idFiche;
+
+        return $this;
+    }
+
+    public function getLaFiche(): ?Fiche
+    {
+        return $this->laFiche;
+    }
+
+    public function setLaFiche(?Fiche $laFiche): self
+    {
+        $this->laFiche = $laFiche;
 
         return $this;
     }
